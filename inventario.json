@@ -1,0 +1,10 @@
+{
+    "A001": {
+        "nombre": "Monitor 24\"",
+        "stock": 15
+    },
+    "A002": {
+        "nombre": "Mouse Gamer",
+        "stock": 5
+    }
+}
