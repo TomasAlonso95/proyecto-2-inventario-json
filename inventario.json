@@ -6,5 +6,9 @@
     "A002": {
         "nombre": "Mouse Gamer",
         "stock": 5
+    },
+    "0003": {
+        "nombre": "Teclado Gamer",
+        "stock": 12
     }
 }
