@@ -53,6 +53,17 @@ class Inventario:
             print(f"\n🗑️ Producto '{id}' eliminado correctamente.")
         else:
             print("\n❌ Error: ID no encontrado.")
+    
+    def buscar_producto(self, texto):
+        resultados = [] # 1. Tu lista vacía
+        for id, info in self.productos.items():
+            if texto.lower() in info["nombre"].lower():
+                # 3. Lo encontramos -> Lo guardamos junto con su ID
+                # (Guardamos una tupla o lista pequeña con los datos)
+                resultados.append(f"ID: {id} | {info["nombre"]} | Stock: {info["stock"]}")
+        return resultados 
+
+
 
 # --- MENÚ DE EJECUCIÓN ---
 if __name__ == "__main__":
@@ -66,7 +77,8 @@ if __name__ == "__main__":
         print("2. Mostrar Inventario")
         print("3. Actualizar Stock")
         print("4. Borrar Producto")
-        print("5. Salir")
+        print("5. 🔍 Buscar Producto")
+        print("6. Salir")
         
         opcion = input("\n👉 Seleccione una opción: ")
 
@@ -95,6 +107,16 @@ if __name__ == "__main__":
             sistema.borrar_producto(id)
 
         elif opcion == "5":
+            texto = input("¿Qué estas buscando?: ")
+            hallazgos = sistema.buscar_producto(texto)
+            if len(hallazgos) > 0:
+                print(f"\n✅ Se encontraron {len(hallazgos)} coincidencias:")
+                for item in hallazgos:
+                    print(item)
+            else:
+                print(f"\n❌ No se encontraron productos con '{texto}'.")
+
+        elif opcion == "6": # <--- Cambiamos a 6
             print("\n👋 ¡Cerrando sistema! Tus datos quedan seguros.")
             break
             
